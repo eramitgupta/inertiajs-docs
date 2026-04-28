@@ -191,6 +191,18 @@ defineOptions({ layout: Layout })
 
 </VueSpecific>
 
+<ReactSpecific>
+
+Arrow function components should be wrapped in an array. Without the array, Inertia cannot distinguish them from render functions at runtime:
+
+```jsx
+const ArrowLayout = ({ children }) => <main>{children}</main>
+
+Welcome.layout = [ArrowLayout]
+```
+
+</ReactSpecific>
+
 ### Nested Layouts
 
 You may create more complex layout arrangements using nested layouts. Pass an array of layout components to wrap the page in multiple layers.
