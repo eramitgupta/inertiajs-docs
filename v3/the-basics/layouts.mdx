@@ -178,8 +178,6 @@ export default Welcome
 
 </CodeGroup>
 
-<VueSpecific>
-
 Vue 3.3+ users may alternatively use [defineOptions](https://vuejs.org/api/sfc-script-setup.html#defineoptions) to define a layout within `<script setup>`:
 
 ```vue
@@ -189,19 +187,7 @@ defineOptions({ layout: Layout })
 </script>
 ```
 
-</VueSpecific>
-
-<ReactSpecific>
-
-Arrow function components should be wrapped in an array. Without the array, Inertia cannot distinguish them from render functions at runtime:
-
-```jsx
-const ArrowLayout = ({ children }) => <main>{children}</main>
-
-Welcome.layout = [ArrowLayout]
-```
-
-</ReactSpecific>
+In React, arrow function components should be wrapped in an array. Without the array, Inertia cannot distinguish them from render functions at runtime. See the [upgrade guide](/v3/getting-started/upgrade-guide#react-arrow-function-layout-components) for details.
 
 ### Nested Layouts
 
