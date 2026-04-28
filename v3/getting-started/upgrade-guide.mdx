@@ -294,7 +294,7 @@ The deprecated `Inertia\Testing\Concerns\Has`, `Inertia\Testing\Concerns\Matchin
 
 ### React Arrow Function Layout Components
 
-Arrow function components assigned directly to `.layout` are not supported. Inertia cannot reliably distinguish them from render functions at runtime. Wrapping the component in an array resolves this:
+The new layout implementation in v3 no longer supports arrow function components assigned directly to `.layout`. Inertia cannot reliably distinguish them from render functions at runtime. Wrapping the component in an array resolves this:
 
 ```jsx
 // ❌ does not work — arrow function component assigned directly
