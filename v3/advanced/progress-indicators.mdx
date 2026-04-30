@@ -21,10 +21,14 @@ createInertiaApp({
     includeCSS: true,
     // Whether the NProgress spinner will be shown...
     showSpinner: false,
+    // The nonce attribute for the injected style element...
+    nonce: false,
   },
   // ...
 });
 ```
+
+When using a [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) that restricts inline styles, you may set the `nonce` option to ensure the injected stylesheet is permitted. Setting `nonce` to `true` will automatically detect the nonce from an existing `<script>` element on the page, or you may provide an explicit nonce string.
 
 You can disable Inertia's default loading indicator by setting the `progress` property to `false`.
 
