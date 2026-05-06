@@ -512,7 +512,7 @@ If you change the `id` of the root element, be sure to update it [server-side](/
 
 ## Content Security Policy
 
-For applications using a [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) that restricts inline styles, you may pass a `nonce` to `createInertiaApp()`. The nonce is applied to the inline styles Inertia injects for the [progress bar](/v3/advanced/progress-indicators) and the [error dialog](/v3/security/csrf-protection#handling-mismatches), allowing them through your CSP.
+For applications using a [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) that restricts inline styles, you may pass a `nonce` to `createInertiaApp()`. The nonce is applied to the inline styles Inertia injects for the [progress bar](/v3/advanced/progress-indicators) and the [error modal](/v3/advanced/error-handling), allowing them through your CSP.
 
 ```js
 createInertiaApp({
