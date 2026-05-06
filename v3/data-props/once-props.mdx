@@ -124,6 +124,27 @@ class HandleInertiaRequests extends Middleware
 }
 ```
 
+## Conditional Once Props
+
+Some shared data rarely changes but flips at specific moments, like the authenticated user. You may register it as a once prop only when a stable value is available, and return a plain value otherwise. Sign in and sign out usually end with a redirect to a page that does not explicitly request the `auth` prop, so a cached once value would go stale.
+
+```php
+class HandleInertiaRequests extends Middleware
+{
+    public function share(Request $request): array
+    {
+        return [
+            ...parent::share($request),
+            'auth' => $request->user()
+                ? Inertia::once(fn () => $request->user())
+                : null,
+        ];
+    }
+}
+```
+
+After signing in, the prop becomes a once prop and is delivered on the next response, then cached on the client for the rest of the session. After signing out, the prop is a plain `null` and is included on every response, overwriting the cached user.
+
 ## Prefetching
 
 Once props are compatible with [prefetching](/v3/data-props/prefetching). The client automatically includes any remembered once props in prefetched responses, so navigating to a prefetched page will already have the once props available.
