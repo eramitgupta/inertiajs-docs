@@ -72,6 +72,8 @@ createInertiaApp({
 
 When a CSRF token mismatch occurs, your server-side framework will likely throw an exception that results in an error response. For example, when using Laravel, a `TokenMismatchException` is thrown which results in a `419` error page. Since that isn't a valid Inertia response, the error is shown in a modal.
 
+<Note>The error modal injects an inline `<style>` tag. For applications enforcing a [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) that restricts inline styles, you may configure a [nonce](/v3/installation/client-side-setup#content-security-policy) on `createInertiaApp()`.</Note>
+
 <video
   controls
   className="w-full rounded-xl"
