@@ -128,6 +128,8 @@ class HandleInertiaRequests extends Middleware
 
 Some shared data rarely changes but flips at specific moments, like the authenticated user. You may register it as a once prop only when a stable value is available, and return a plain value otherwise. Sign in and sign out usually end with a redirect to a page that does not explicitly request the `auth` prop, so a cached once value would go stale.
 
+Returning `null` on signed-out requests overwrites the cached user on every response, while returning a once prop when authenticated caches the user across visits.
+
 ```php
 class HandleInertiaRequests extends Middleware
 {
@@ -142,8 +144,6 @@ class HandleInertiaRequests extends Middleware
     }
 }
 ```
-
-After signing in, the prop becomes a once prop and is delivered on the next response, then cached on the client for the rest of the session. After signing out, the prop is a plain `null` and is included on every response, overwriting the cached user.
 
 ## Prefetching
 
