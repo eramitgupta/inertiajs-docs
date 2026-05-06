@@ -56,6 +56,7 @@ The recommended way to configure SSR is with the [`@inertiajs/vite` plugin](/v3/
             ssr: {
                 entry: 'resources/js/ssr.js',
                 port: 13714,
+                host: '127.0.0.1',
                 cluster: true,
             },
         })
@@ -110,6 +111,18 @@ By default, the SSR server runs on a single thread. You may enable clustering to
 inertia({
     ssr: {
         cluster: true,
+    },
+})
+```
+
+### Host
+
+By default, the SSR server binds to `0.0.0.0`, making it accessible on all network interfaces. You may restrict it to a specific interface using the `host` option.
+
+```js vite.config.js
+inertia({
+    ssr: {
+        host: '127.0.0.1',
     },
 })
 ```
@@ -338,6 +351,41 @@ createServer(page =>
         // ...
     }),
     { cluster: true },
+)
+```
+
+</CodeGroup>
+
+### Host
+
+By default, the SSR server binds to `0.0.0.0`, making it accessible on all network interfaces. You may pass the `host` option to `createServer` to restrict it to a specific interface.
+
+<CodeGroup>
+
+```js Vue icon="vuejs"
+createServer(page =>
+    createInertiaApp({
+        // ...
+    }),
+    { host: '127.0.0.1' },
+)
+```
+
+```jsx React icon="react"
+createServer(page =>
+    createInertiaApp({
+        // ...
+    }),
+    { host: '127.0.0.1' },
+)
+```
+
+```js Svelte icon="s"
+createServer(page =>
+    createInertiaApp({
+        // ...
+    }),
+    { host: '127.0.0.1' },
 )
 ```
 
