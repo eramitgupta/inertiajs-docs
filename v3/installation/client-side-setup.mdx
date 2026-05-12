@@ -329,6 +329,29 @@ createInertiaApp({
 
 </CodeGroup>
 
+## AI Assistants and IDE Integrations
+
+AI assistants and IDE integrations often write state files into your project root. With `laravel-vite-plugin`'s `refresh: true` enabled, these writes may trigger unexpected full page reloads, since Vite's watcher only ignores `node_modules` and `.git` by default.
+
+You may extend Vite's `server.watch.ignored` option to exclude these paths.
+
+```js vite.config.js
+export default defineConfig({
+    server: {
+        watch: {
+            ignored: [
+                '**/.junie/**',
+                '**/.cursor/**',
+                '**/.claude/**',
+            ],
+        },
+    },
+    // ...
+})
+```
+
+Adjust the list to match your installed tools. See Vite's [server.watch](https://vite.dev/config/server-options.html#server-watch) documentation for additional options.
+
 ## Manual Setup
 
 If you prefer not to use the Vite plugin, you may provide the `resolve` and `setup` callbacks manually. The `resolve` callback tells Inertia how to load a page component and receives the component name and the full [page object](/v3/core-concepts/the-protocol). The `setup` callback initializes the client-side framework.
