@@ -39,11 +39,11 @@ import { usePoll } from '@inertiajs/vue3'
 
 usePoll(2000, {
     onStart() {
-            console.log('Polling request started')
+        console.log('Polling request started')
     },
     onFinish() {
-            console.log('Polling request finished')
-    }
+        console.log('Polling request finished')
+    },
 })
 ```
 
@@ -52,11 +52,11 @@ import { usePoll } from '@inertiajs/react'
 
 usePoll(2000, {
     onStart() {
-            console.log('Polling request started')
+        console.log('Polling request started')
     },
     onFinish() {
-            console.log('Polling request finished')
-    }
+        console.log('Polling request finished')
+    },
 })
 ```
 
@@ -65,11 +65,11 @@ import { usePoll } from '@inertiajs/svelte'
 
 usePoll(2000, {
     onStart() {
-            console.log('Polling request started')
+        console.log('Polling request started')
     },
     onFinish() {
-            console.log('Polling request finished')
-    }
+        console.log('Polling request finished')
+    },
 })
 ```
 
@@ -97,8 +97,8 @@ import { usePoll } from '@inertiajs/react'
 
 export default ({ counter }) => {
     usePoll(2000, () => ({
-            data: { counter_seen: counter },
-            only: ['last_received'],
+        data: { counter_seen: counter },
+        only: ['last_received'],
     }))
 }
 ```
@@ -140,14 +140,14 @@ import { usePoll } from '@inertiajs/react'
 
 export default () => {
     const { start, stop } = usePoll(2000, {}, {
-            autoStart: false,
+        autoStart: false,
     })
 
     return (
-            <div>
-                    <button onClick={start}>Start polling</button>
-                    <button onClick={stop}>Stop polling</button>
-            </div>
+        <div>
+            <button onClick={start}>Start polling</button>
+            <button onClick={stop}>Stop polling</button>
+        </div>
     )
 }
 ```
