@@ -35,6 +35,12 @@ Asset refreshing in Inertia works on the assumption that a hard page visit will 
 
 With Laravel's Vite integration, asset versioning is done automatically. If you're using Laravel Mix, you can do this automatically by enabling [versioning](https://laravel.com/docs/mix#versioning-and-cache-busting) in your `webpack.mix.js` file.
 
+## Background Requests
+
+<Badge>v3.6.0+</Badge>
+
+A version change detected on a background request, such as polling or a `router.reload()`, does not force a full-page navigation. Reloading a request the user never initiated could wipe out unsaved state, so the current page stays untouched and the next user-initiated visit picks up the new assets. You may hook into the [`location` event](/v3/advanced/events#location) to detect an asset version change and show a notification instead of reloading.
+
 ## Manual Refreshing
 
 If you want to take asset refreshing into your control, you can return a fixed value from the `version` method in the `HandleInertiaRequests` middleware. This disables Inertia's automatic asset versioning.
