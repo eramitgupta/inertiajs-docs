@@ -87,6 +87,7 @@
                         "pages": [
                             "v3/advanced/asset-versioning",
                             "v3/advanced/code-splitting",
+                            "v3/advanced/devtools",
                             "v3/advanced/error-handling",
                             "v3/advanced/events",
                             "v3/advanced/progress-indicators",
@@ -307,6 +308,14 @@
         {
             "source": "/responses",
             "destination": "/v3/the-basics/responses"
+        },
+        {
+            "source": "/devtools",
+            "destination": "/v3/advanced/devtools"
+        },
+        {
+            "source": "/devtools-protocol",
+            "destination": "/v3/advanced/devtools-protocol"
         },
         {
             "source": "/redirects",
