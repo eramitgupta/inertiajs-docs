@@ -104,7 +104,7 @@ After each request, the client inspects the response before touching the page. D
 - **A `409 Conflict` carrying `X-Inertia-Redirect`** triggers a fresh Inertia `GET` visit to that URL.
 - **Any other response**, such as an HTML document, plain JSON, or an error page, is treated as an exception. The client fires a cancelable HTTP exception event and, unless you cancel it, shows an error modal rather than silently navigating.
 
-Standard `3xx` redirects never reach these rules. The browser follows them transparently, replaying the request headers against the new location, so `X-Inertia` still reaches the redirect target and the client only ever inspects the final response in the chain, which is an ordinary Inertia response. This is why the server converts a `302` to a `303` after non-GET requests, and why external redirects, where those headers cannot survive, must instead be signaled with a `409 Conflict`.
+Standard `3xx` redirects never reach these rules. The browser follows them transparently, replaying the request headers against the new location, so `X-Inertia` reaches the redirect target and the client only ever inspects the final response in the chain. See [redirects](#redirects) for the statuses a server returns to steer this.
 
 A valid Inertia response with a status of `400` or greater fires that same cancelable HTTP exception event before rendering. Cancelling it there suppresses the render, letting you handle the failure yourself.
 
@@ -653,7 +653,7 @@ See the [asset versioning](/v3/advanced/asset-versioning) page for configuring t
 
 Inertia relies on standard HTTP redirects for navigation after a server-side action. A `302 Found` returned after a `PUT`, `PATCH`, or `DELETE` is converted to `303 See Other` so the browser issues a `GET` to the redirect target, avoiding a repeated non-GET request.
 
-External redirects point outside your Inertia app, so an XHR visit may not follow them. The server returns a `409 Conflict` with an `X-Inertia-Location` header, and the client performs a full `window.location` visit.
+External redirects point outside your Inertia app, where the Inertia request headers cannot survive the hop, so an XHR visit may not follow them. The server returns a `409 Conflict` with an `X-Inertia-Location` header instead, and the client performs a full `window.location` visit.
 
 A non-prefetch redirect whose target contains a URL fragment is returned as a `409 Conflict` with an `X-Inertia-Redirect` header holding the full URL, and the client makes a fresh Inertia `GET` visit to that URL. This is distinct from the `preserveFragment` page-object field, which carries the original request's fragment across an ordinary redirect. See the [redirects](/v3/the-basics/redirects) documentation.
 
@@ -672,9 +672,9 @@ Inertia uses specific HTTP status codes to handle different scenarios.
 | Status Code       | Description                                                                                                                                                                                                                                                           |
 | :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **200 OK**        | Standard successful response for both HTML and Inertia JSON responses.                                                                                                                                                                                                |
-| **302 Found**     | Standard redirect response. Inertia's server-side adapters automatically convert this to `303 See Other` when returned after `PUT`, `PATCH`, or `DELETE` requests.                                                                                                    |
-| **303 See Other** | Used for redirects after non-GET requests. This status code tells the browser to make a `GET` request to the redirect URL, preventing duplicate form submissions that could occur if the browser repeated the original request method.                                |
-| **409 Conflict**  | Returned when there's an asset version mismatch, for external redirects, or for redirects containing URL fragments. For asset mismatches, this prompts a full-page reload. For external redirects, the response includes an `X-Inertia-Location` header and triggers a `window.location` redirect. For fragment redirects, the response includes an `X-Inertia-Redirect` header and triggers a standard Inertia visit. |
+| **302 Found**     | Standard redirect response.                                                                                                                                                                                                                                           |
+| **303 See Other** | The redirect status after a non-GET request, which tells the browser to follow it with a `GET`. See [redirects](#redirects).                                                                                                                                          |
+| **409 Conflict**  | A control response rather than a page, used for an [asset version mismatch](#asset-versioning), an external redirect, or a fragment redirect. See [redirects](#redirects).                                                                                            |
 
 The following status codes are used for [Precognition](/v3/the-basics/forms#precognition) validation requests.
 
