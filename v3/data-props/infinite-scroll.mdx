@@ -4,7 +4,7 @@ title: Infinite Scroll
 
 Inertia's infinite scroll feature loads additional pages of content as users scroll, replacing traditional pagination controls. This is great for applications like chat interfaces, social feeds, photo grids, and product listings.
 
-## Server Side
+## Server-Side
 
 To configure your paginated data for infinite scrolling, you should use the `Inertia::scroll()` method when returning your response. This method automatically configures the proper merge behavior and normalizes pagination metadata for the front-end component.
 
@@ -18,7 +18,7 @@ Route::get('/users', function () {
 
 The `Inertia::scroll()` method works with Laravel's `paginate()`, `simplePaginate()`, and `cursorPaginate()` methods, as well as pagination data wrapped in [Eloquent API resources](https://laravel.com/docs/eloquent-resources). For more details, check out the [Inertia::scroll() method](#inertia-scroll-method) documentation.
 
-## Client Side
+## Client-Side
 
 On the client side, Inertia provides the `<InfiniteScroll>` component to automatically load additional pages of content. The component accepts a `data` prop that specifies the key of the prop containing your paginated data. The `<InfiniteScroll>` component should wrap the content that depends on the paginated data.
 

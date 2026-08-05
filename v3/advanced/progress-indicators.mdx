@@ -169,9 +169,9 @@ router.on("finish", () => NProgress.done());
 
 That's it! Now, as you navigate from one page to another, the progress bar will be added and removed from the page.
 
-### Handling Cancelled Visits
+### Handling Canceled Visits
 
-While this custom progress implementation works great for page visits that finish properly, it would be nice to handle cancelled visits as well. First, for interrupted visits (those that get cancelled as a result of a new visit), the progress bar should simply be reset back to the start position. Second, for manually cancelled visits, the progress bar should be immediately removed from the page.
+While this custom progress implementation works great for page visits that finish properly, it would be nice to handle canceled visits as well. First, for interrupted visits (those that get canceled as a result of a new visit), the progress bar should simply be reset back to the start position. Second, for manually canceled visits, the progress bar should be immediately removed from the page.
 
 We can accomplish this by inspecting the `event.detail.visit` object that's provided to the finish event.
 

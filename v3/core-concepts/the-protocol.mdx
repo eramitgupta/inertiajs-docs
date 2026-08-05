@@ -106,7 +106,7 @@ After each request, the client inspects the response before touching the page. D
 
 Standard `3xx` redirects never reach these rules. The browser follows them transparently, replaying the request headers against the new location, so `X-Inertia` reaches the redirect target and the client only ever inspects the final response in the chain. See [redirects](#redirects) for the statuses a server returns to steer this.
 
-A valid Inertia response with a status of `400` or greater fires that same cancelable HTTP exception event before rendering. Cancelling it there suppresses the render, letting you handle the failure yourself.
+A valid Inertia response with a status of `400` or greater fires that same cancelable HTTP exception event before rendering. Canceling it there suppresses the render, letting you handle the failure yourself.
 
 ## Request Headers
 
