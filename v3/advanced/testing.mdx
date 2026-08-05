@@ -10,7 +10,7 @@ One popular approach to testing your JavaScript page components is to use an end
 
 ## Client-Side Unit Tests
 
-Another approach to testing your page components is using a client-side unit testing framework, such as [Vitest](https://vitest.dev/), [Jest](https://jestjs.io/), or [Mocha](https://mochajs.org/). This approach allows you to test your JavaScript page components in isolation using Node.js.
+Another approach to testing your page components is to use a client-side unit testing framework, such as [Vitest](https://vitest.dev/), [Jest](https://jestjs.io/), or [Mocha](https://mochajs.org/). This approach allows you to test your JavaScript page components in isolation using Node.js.
 
 ## Endpoint Tests
 
@@ -81,7 +81,7 @@ $response->assertInertia(fn (Assert $page) => $page
 );
 ```
 
-To assert that an Inertia property has a specified amount of items, you may provide the expected size as the second argument to the `has` method.
+To assert that an Inertia property has a specified number of items, you may provide the expected size as the second argument to the `has` method.
 
 ```php
 $response->assertInertia(fn (Assert $page) => $page
@@ -184,7 +184,7 @@ Instead of passing a single prop as a string, you may also pass an array of prop
 
 ### Testing Deferred Props
 
-You may use the `loadDeferredProps` method to test how your application responds to [deferred props](/v3/data-props/deferred-props). This method performs a follow-up request to load the deferred properties and allows you to make assertions against the response.
+You may use the `loadDeferredProps` method to test how your application responds to [deferred props](/v3/data-props/deferred-props). This method performs a follow-up request to load the deferred props and allows you to make assertions against the response.
 
 ```php
 $response->assertInertia(fn (Assert $page) => $page

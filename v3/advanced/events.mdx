@@ -36,7 +36,7 @@ router.on("start", (event) => {
 
 </CodeGroup>
 
-Under the hood, Inertia uses native browser events, so you can also interact with Inertia events using the typical event methods you may already be familiar with - just be sure to prepend `inertia:` to the event name.
+Under the hood, Inertia uses native browser events, so you can also interact with Inertia events using the typical event methods you may already be familiar with. Just be sure to prepend `inertia:` to the event name.
 
 <CodeGroup>
 
@@ -331,7 +331,7 @@ router.on("before", (event) => {
 
 </CodeGroup>
 
-Note, browsers do not allow cancelling the native `popstate` event, so preventing forward and back history visits while using Inertia.js is not possible.
+Note that browsers do not allow canceling the native `popstate` event, so preventing forward and back history visits with Inertia is not possible.
 
 ## Before
 
@@ -573,7 +573,7 @@ The `error` event is not cancelable.
 
 ## HTTP Exception
 
-The `httpException` event fires when a non-Inertia response is received from the server, such as an HTML or vanilla JSON response. A valid Inertia response is a response that has the `X-Inertia` header set to `true` with a `json` payload containing [the page object](/v3/core-concepts/the-protocol#the-page-object).
+The `httpException` event fires when a non-Inertia response is received from the server, such as an HTML or JSON response. A valid Inertia response has the `X-Inertia` header set to `true` and a JSON payload containing [the page object](/v3/core-concepts/the-protocol#the-page-object).
 
 This event is fired for all response types, including `200`, `400`, and `500` response codes.
 
@@ -712,7 +712,7 @@ router.on("networkError", (event) => {
 
 </CodeGroup>
 
-This event will _not_ fire for XHR requests that receive `400` and `500` level responses or for non-Inertia responses, as these situations are handled in other ways by Inertia. Please consult the [error handling documentation](/v3/advanced/error-handling) for more information.
+This event will _not_ fire for XHR requests that receive `400`- and `500`-level responses or for non-Inertia responses, as these situations are handled in other ways by Inertia. Please consult the [error handling documentation](/v3/advanced/error-handling) for more information.
 
 ## Finish
 
@@ -928,4 +928,4 @@ The `prefetched` event is not cancelable.
 
 ## Event Callbacks
 
-In addition to the global events described throughout this page, Inertia also provides a number of [event callbacks](/v3/the-basics/manual-visits#event-callbacks) that fire when manually making Inertia visits.
+In addition to the global events described throughout this page, Inertia also provides a number of [event callbacks](/v3/the-basics/manual-visits#event-callbacks) that fire when you manually make Inertia visits.

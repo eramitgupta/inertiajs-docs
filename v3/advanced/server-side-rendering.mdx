@@ -423,7 +423,7 @@ You may also enable the `ensure_runtime_exists` option to verify the runtime bin
 ],
 ```
 
-With the server running, you should be able to access your app within the browser with server-side rendering enabled. In fact, you should be able to disable JavaScript entirely and still navigate around your application.
+With the server running, you should be able to access your app in the browser with server-side rendering enabled. In fact, you should be able to disable JavaScript entirely and still navigate around your application.
 
 ## Error Handling
 
@@ -541,7 +541,7 @@ if (request()->is('admin/*')) {
 
 ## Deployment
 
-When deploying your SSR enabled app to production, you'll need to build both the client-side (`app.js`) and server-side bundles (`ssr.js`), and then run the SSR server as a background process, typically using a process monitoring tool such as Supervisor.
+When deploying your SSR-enabled app to production, you'll need to build both the client-side (`app.js`) and server-side bundles (`ssr.js`), and then run the SSR server as a background process, typically using a process monitoring tool such as Supervisor.
 
 ```bash
 php artisan inertia:start-ssr

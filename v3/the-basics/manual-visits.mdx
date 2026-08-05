@@ -2,7 +2,7 @@
 title: Manual Visits
 ---
 
-In addition to [creating links](/v3/the-basics/links), it's also possible to manually make Inertia visits / requests programmatically via JavaScript. This is accomplished via the `router.visit()` method.
+In addition to [creating links](/v3/the-basics/links), it's also possible to manually make Inertia visits or requests programmatically via JavaScript. This is accomplished via the `router.visit()` method.
 
 <CodeGroup>
 
@@ -303,7 +303,7 @@ router.visit("/users", {
 
 </CodeGroup>
 
-For convenience, the `get()`, `post()`, `put()`, and `patch()`methods all accept `data` as their second argument.
+For convenience, the `get()`, `post()`, `put()`, and `patch()` methods all accept `data` as their second argument.
 
 <CodeGroup>
 
@@ -504,7 +504,7 @@ Visits made to the same URL automatically set `replace` to `true`.
 
 ## Client Side Visits
 
-You can use the `router.push` and `router.replace` method to make client-side visits. This method is useful when you want to update the browser's history without making a server request.
+You can use the `router.push` and `router.replace` methods to make client-side visits. These methods are useful when you want to update the browser's history without making a server request.
 
 <CodeGroup>
 
@@ -564,7 +564,7 @@ router.push({
 
 </CodeGroup>
 
-All of the parameters are optional. By default, all passed paramaters (except `errorBag`) will be merged with the current page. This means you are responsible for overriding the current page's URL, component, and props.
+All of the parameters are optional. By default, all passed parameters (except `errorBag`) will be merged with the current page. This means you are responsible for overriding the current page's URL, component, and props.
 
 If you need access to the current page's props, you may pass a function to the `props` option. This function receives the current props (including any [once props](/v3/data-props/once-props)) and should return the new props.
 
@@ -1101,7 +1101,7 @@ router.post("/users", data, {
 
 </CodeGroup>
 
-Returning `false` from the `onBefore()` callback will cause the visit to be cancelled. Returning `false` from `onHttpException()` or `onNetworkError()` will prevent the corresponding [global event](/v3/advanced/events) from being fired and its default behavior.
+Returning `false` from the `onBefore()` callback will cause the visit to be canceled. Returning `false` from `onHttpException()` or `onNetworkError()` will prevent the corresponding [global event](/v3/advanced/events) from being fired and its default behavior.
 
 <CodeGroup>
 

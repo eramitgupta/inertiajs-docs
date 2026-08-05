@@ -83,7 +83,7 @@ In the first example, Inertia will iterate over the `data` array and attempt to 
 
 ## Deep Merge
 
-Instead of specifying which nested paths should be merged, you may use `Inertia::deepMerge()`to ensure a deep merge of the entire structure.
+Instead of specifying which nested paths should be merged, you may use `Inertia::deepMerge()` to ensure a deep merge of the entire structure.
 
 ```php
 Route::get('/chat', function () {
@@ -138,7 +138,7 @@ For more information on once props, see the [once props](/v3/data-props/once-pro
 
 On the client side, you can indicate to the server that you would like to reset the prop. This is useful when you want to clear the prop value before merging new data, such as when the user enters a new search query on a paginated list.
 
-The `reset` request option accepts an array of the props keys you would like to reset.
+The `reset` request option accepts an array of the prop keys you would like to reset.
 
 ```js
 router.reload({

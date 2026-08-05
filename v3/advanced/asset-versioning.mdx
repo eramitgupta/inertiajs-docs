@@ -2,7 +2,7 @@
 title: Asset Versioning
 ---
 
-One common challenge when building single-page apps is refreshing site assets when they've been changed. Thankfully, Inertia makes this easy by optionally tracking the current version of your site assets. When an asset changes, Inertia will automatically make a full page visit instead of a XHR visit on the next request.
+One common challenge when building single-page apps is refreshing site assets when they've been changed. Thankfully, Inertia makes this easy by optionally tracking the current version of your site assets. When an asset changes, Inertia will automatically make a full-page visit instead of an XHR visit on the next request.
 
 ## Configuration
 
@@ -31,7 +31,7 @@ Inertia::version(fn () => $version); // Lazily...
 
 ## Cache Busting
 
-Asset refreshing in Inertia works on the assumption that a hard page visit will trigger your assets to reload. However, Inertia doesn't actually do anything to force this. Typically this is done with some form of cache busting. For example, appending a version query parameter to the end of your asset URLs.
+Asset refreshing in Inertia works on the assumption that a full-page visit will trigger your assets to reload. However, Inertia doesn't actually do anything to force this. Typically this is done with some form of cache busting. For example, appending a version query parameter to the end of your asset URLs.
 
 With Laravel's Vite integration, asset versioning is done automatically. If you're using Laravel Mix, you can do this automatically by enabling [versioning](https://laravel.com/docs/mix#versioning-and-cache-busting) in your `webpack.mix.js` file.
 
@@ -43,9 +43,9 @@ A version change detected on a background request, such as polling or a `router.
 
 ## Manual Refreshing
 
-If you want to take asset refreshing into your control, you can return a fixed value from the `version` method in the `HandleInertiaRequests` middleware. This disables Inertia's automatic asset versioning.
+If you want to take control of asset refreshing, you can return a fixed value from the `version` method in the `HandleInertiaRequests` middleware. This disables Inertia's automatic asset versioning.
 
-For example, if you want to notify users when a new version of your frontend is available, you can still expose the actual asset version to the frontend by including it as [shared data](/v3/data-props/shared-data).
+For example, if you want to notify users when a new version of your front end is available, you can still expose the actual asset version to the front end by including it as [shared data](/v3/data-props/shared-data).
 
 ```php
 class HandleInertiaRequests extends Middleware
@@ -64,4 +64,4 @@ class HandleInertiaRequests extends Middleware
 }
 ```
 
-On the frontend, you can watch the `version` property and show a notification when a new version is detected.
+On the front end, you can watch the `version` property and show a notification when a new version is detected.

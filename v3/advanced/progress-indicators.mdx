@@ -108,7 +108,7 @@ If you've disabled the progress indicator with `progress: false` in `createInert
 
 ## Custom
 
-It's also possible to setup your own custom page loading indicators using Inertia [events](/v3/advanced/events). Let's explore how to do this using the [NProgress](https://ricostacruz.com/nprogress/) library as an example.
+It's also possible to set up your own custom page loading indicators using Inertia [events](/v3/advanced/events). Let's explore how to do this using the [NProgress](https://ricostacruz.com/nprogress/) library as an example.
 
 First, disable Inertia's default loading indicator.
 
@@ -200,7 +200,7 @@ router.on("progress", (event) => {
 });
 ```
 
-Now, instead of the progress bar "trickling" while the files are being uploaded, it will actually update it's position based on the progress of the request. We limit the progress here to 90%, since we still need to wait for a response from the server.
+Now, instead of the progress bar "trickling" while the files are being uploaded, it will actually update its position based on the progress of the request. We limit the progress here to 90%, since we still need to wait for a response from the server.
 
 ### Loading Indicator Delay
 
@@ -367,9 +367,9 @@ router.on("finish", (event) => {
 
 ## Visit Options
 
-In addition to these configurations, Inertia.js provides two visit options to control the loading indicator on a per-request basis: `showProgress` and `async`. These options offer greater control over how Inertia.js handles asynchronous requests and manages progress indicators.
+In addition to these configurations, Inertia provides two visit options to control the loading indicator on a per-request basis: `showProgress` and `async`. These options offer greater control over how Inertia handles asynchronous requests and manages progress indicators.
 
-### Showprogress
+### Show Progress
 
 The `showProgress` option provides fine-grained control over the visibility of the loading indicator during requests.
 

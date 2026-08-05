@@ -45,7 +45,7 @@ The tag content is the JSON-encoded id string.
 
 ## Correlation Headers
 
-These headers correlate entries with client-side page state and group related requests. The extension stamps the request headers, the adapter reads them and stores their values on the entry. The adapter emits the one response header.
+These headers correlate entries with client-side page state and group related requests. The extension stamps the request headers, and the adapter reads them and stores their values on the entry. The adapter emits the response header.
 
 The following request headers are sent by the extension, all optional per request.
 
@@ -262,7 +262,7 @@ http: {
 </ParamField>
 
 <ParamField body="propValues" type="Record<string, unknown>">
-  Resolved prop values, keyed by dotted path. Sensitive values are replaced with `"[REDACTED]"`. May be omitted or `{}`, the panel guards against absence.
+  Resolved prop values, keyed by dotted path. Sensitive values are replaced with `"[REDACTED]"`. May be omitted or `{}`. The panel guards against absence.
 </ParamField>
 
 ### Route
@@ -315,4 +315,3 @@ The `client-visit` and `cache-hit` types are client-only and never come from an 
 ## Storage Semantics
 
 An adapter buffers recent entries and evicts old ones, typically capping entries per `tabUuid` so a busy tab cannot evict another tab's history, and pruning entries past a TTL. These are adapter-internal concerns; the protocol only requires that the read API return what is currently stored, newest first.
-

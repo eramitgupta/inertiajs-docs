@@ -4,7 +4,7 @@ title: Server-Side Setup
 
 The first step when installing Inertia is to configure your server-side framework. Inertia maintains an official server-side adapter for [Laravel](https://laravel.com/). For other frameworks, please see the [community adapters](/v3/installation/community-adapters).
 
-Inertia is fine-tuned for Laravel, so the documentation examples on this website utilize Laravel. For examples of using Inertia with other server-side frameworks, please refer to the framework specific documentation maintained by that adapter.
+Inertia is fine-tuned for Laravel, so the documentation examples on this website utilize Laravel. For examples of using Inertia with other server-side frameworks, please refer to the framework-specific documentation maintained by the relevant adapter.
 
 <Card
     icon="laravel"
@@ -63,7 +63,7 @@ These starter kits are the absolute fastest way to start building a new Inertia 
     </Step>
 
     <Step title="Register middleware">
-        Next we need to setup the Inertia middleware. You can accomplish this by publishing the `HandleInertiaRequests` middleware to your application, which can be done using the following Artisan command.
+        Next, set up the Inertia middleware by publishing the `HandleInertiaRequests` middleware to your application with the following Artisan command.
 
         ```sh
         php artisan inertia:middleware
@@ -85,7 +85,7 @@ These starter kits are the absolute fastest way to start building a new Inertia 
     </Step>
 
     <Step title="Create your first response">
-        That's it, you're all ready to go server-side! Now you're ready to start creating Inertia [pages](/v3/the-basics/pages) and rendering them via [responses](/v3/the-basics/responses).
+        That's it, you're ready to start creating Inertia [pages](/v3/the-basics/pages) and rendering them via [responses](/v3/the-basics/responses).
 
         ```php
         use Inertia\Inertia;

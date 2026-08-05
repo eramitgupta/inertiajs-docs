@@ -66,7 +66,7 @@ import { Link } from '@inertiajs/svelte'
 </CodeGroup>
 
 <Info>
-    Creating `POST`/`PUT`/`PATCH`/ `DELETE` anchor `<a>` links is discouraged as it causes "Open Link in New Tab / Window" accessibility issues. The component automatically renders a{` `} `<button>` element when using these methods.
+    Creating anchor (`<a>`) links that issue `POST`, `PUT`, `PATCH`, or `DELETE` requests is discouraged because it causes accessibility issues with "Open Link in New Tab / Window". The component automatically renders a `<button>` element when using these methods.
 </Info>
 
 ## Method
@@ -413,7 +413,7 @@ import { inertia, Link, page } from '@inertiajs/svelte'
 
 You can perform exact match comparisons (`===`), `startsWith()` comparisons (useful for matching a subset of pages), or even more complex comparisons using regular expressions.
 
-Using this approach, you're not limited to just setting class names. You can use this technique to conditionally render any markup on active state, such as different link text or even an SVG icon that represents the link is active.
+Using this approach, you're not limited to just setting class names. You can use this technique to conditionally render any markup on active state, such as different link text or even an SVG icon that indicates the link is active.
 
 ## Data Loading Attribute
 

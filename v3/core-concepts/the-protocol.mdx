@@ -10,7 +10,7 @@ The protocol is framework-agnostic. Any backend that speaks HTTP may implement i
 
 The very first request to an Inertia app is just a regular, full-page browser request, with no special Inertia headers or data. For these requests, the server returns a full HTML document.
 
-This HTML response includes the site assets (CSS, JavaScript) as well as a root `<div>` in the page's body. The root `<div>` serves as a mounting point for the client-side app. A `<script type="application/json">` element contains the JSON encoded [page object](#the-page-object) for the initial page. Inertia uses this information to boot your client-side framework and display the initial page component.
+This HTML response includes the site assets (CSS, JavaScript) as well as a root `<div>` in the page's body. The root `<div>` serves as a mounting point for the client-side app. A `<script type="application/json">` element contains the JSON-encoded [page object](#the-page-object) for the initial page. Inertia uses this information to boot your client-side framework and display the initial page component.
 
 ```http
 REQUEST
@@ -238,7 +238,7 @@ The following headers are used for [Precognition](/v3/the-basics/forms#precognit
 
 ## The Page Object
 
-Inertia shares data between the server and client via a page object. This object includes the necessary information required to render the page component, update the browser's history state, and track the site's asset version. The page object may include the following properties:
+Inertia shares data between the server and client via a page object. This object includes the necessary information to render the page component, update the browser's history state, and track the site's asset version. The page object may include the following properties:
 
 <ParamField body="component" type="string">
   The name of the JavaScript page component.
@@ -398,7 +398,7 @@ The `X-Inertia-Partial-Data` header is a comma-separated list of the desired pro
 
 The `X-Inertia-Partial-Except` header is a comma-separated list of the props (data) keys that should not be returned. Including only the `X-Inertia-Partial-Except` header sends all props (data) except those listed. Both headers may be sent together, in which case the `X-Inertia-Partial-Data` list narrows the response first and the `X-Inertia-Partial-Except` list is then removed from it, so a prop named in both is excluded.
 
-The `X-Inertia-Partial-Component` header includes the name of the component that is being partially reloaded. This is necessary, since partial reloads only work for requests made to the same page component. Should the final destination differ for some reason (e.g. the user was logged out and is now on the login page), no partial reloading occurs.
+The `X-Inertia-Partial-Component` header includes the name of the component that is being partially reloaded. This is necessary, since partial reloads only work for requests made to the same page component. If the final destination differs for some reason (e.g. the user was logged out and is now on the login page), no partial reloading occurs.
 
 ```http
 REQUEST
@@ -661,7 +661,7 @@ A non-prefetch redirect whose target contains a URL fragment is returned as a `4
 
 Validation errors are shared through the `errors` prop. The Laravel adapter registers `errors` as an always prop, so it is present on every page object and defaults to `{}` when there are no errors.
 
-Each key may map to either a single message or an array of messages, and the client renders whichever shape it receives. The choice is left to the server, so the Laravel adapter sends the first error per field by default and may be [configured](/v3/the-basics/validation#multiple-errors-per-field) to send them all.
+Each key may map to either a single message or an array of messages, and the client renders whichever shape it receives. The choice is left to the server, so the Laravel adapter sends the first error per field by default and may be [configured](/v3/the-basics/validation#multiple-errors-per-field) to send all error messages for each field.
 
 Requests may scope errors to a named error bag with the `X-Inertia-Error-Bag` header. The server namespaces the returned errors under that bag, so multiple forms on a page may keep their errors separate. See the [validation](/v3/the-basics/validation) documentation.
 

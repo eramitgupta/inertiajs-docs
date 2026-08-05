@@ -6,7 +6,7 @@ import { ReactSpecific } from "/snippets/react-specific.jsx"
 import { SvelteSpecific } from "/snippets/svelte-specific.jsx"
 import { VueSpecific } from "/snippets/vue-specific.jsx"
 
-Once you have your [server-side framework configured](/v3/installation/server-side-setup), you then need to setup your client-side framework. Inertia currently provides support for React, Vue, and Svelte.
+Once you have your [server-side framework configured](/v3/installation/server-side-setup), you then need to set up your client-side framework. Inertia currently provides support for React, Vue, and Svelte.
 
 <Card
     icon="laravel"
@@ -227,7 +227,7 @@ createInertiaApp({
 
 ## Customizing the App
 
-Sometimes you may wish to customize the app instance, for example to register plugins, wrap with providers, or set context values. Pass the `withApp` callback to `createInertiaApp` to hook into the app before it renders.
+Sometimes, you may wish to customize the app instance, for example, to register plugins, wrap it with providers, or set context values. Pass the `withApp` callback to `createInertiaApp` to customize the app before it renders.
 
 <CodeGroup>
 
@@ -329,7 +329,7 @@ createInertiaApp({
 
 </CodeGroup>
 
-The second argument also includes the current `page` object, giving you access to the component name, URL, version, and shared props before the app renders. Useful for configuring plugins or providers with server-driven state like the user's locale.
+The second argument also includes the current `page` object, giving you access to the component name, URL, version, and shared props before the app renders. This is useful for configuring plugins or providers with server-driven state, such as the user's locale.
 
 <CodeGroup>
 

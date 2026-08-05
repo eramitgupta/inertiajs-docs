@@ -199,10 +199,10 @@ export default () => (
   You can set default values for form inputs using standard HTML attributes. Use{" "}
   <ReactSpecific>`defaultValue`</ReactSpecific>
   <VueSpecific>`defaultValue`</VueSpecific>
-  <SvelteSpecific>`value`</SvelteSpecific>for text inputs and textareas, and{" "}
+  <SvelteSpecific>`value`</SvelteSpecific>{" "}for text inputs and textareas, and{" "}
   <ReactSpecific>`defaultChecked`</ReactSpecific>
   <VueSpecific>`defaultChecked`</VueSpecific>
-  <SvelteSpecific>`checked`</SvelteSpecific>for checkboxes and radios.
+  <SvelteSpecific>`checked`</SvelteSpecific>{" "}for checkboxes and radios.
 </ClientSpecific>
 
 <CodeGroup>
@@ -1604,7 +1604,7 @@ const { progress } = useForm({ ... })
 
 ### Form Errors
 
-If there are form validation errors, they are available via the `errors` property. When building Laravel powered Inertia applications, form errors will automatically be populated when your application throws instances of `ValidationException`, such as when using `{'$request->validate()'}`.
+If there are form validation errors, they are available via the `errors` property. When building Laravel-powered Inertia applications, form errors will automatically be populated when your application throws instances of `ValidationException`, such as when using `{'$request->validate()'}`.
 
 <CodeGroup>
 
@@ -2034,7 +2034,7 @@ const form = useForm({
 
 </CodeGroup>
 
-For backwards compatibility with the `laravel-precognition` packages, you may also pass the method and URL as the first arguments to `useForm()`.
+For backward compatibility with the `laravel-precognition` packages, you may also pass the method and URL as the first arguments to `useForm()`.
 
 ```js
 const form = useForm("post", "/users", {

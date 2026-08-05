@@ -20,7 +20,7 @@ Route::get('/users', function () {
 
 ### Grouping Requests
 
-By default, all deferred props get fetched in one request after the initial page is rendered, but you can choose to fetch data in parallel by grouping props together.
+By default, all deferred props are fetched in a single request after the initial page is rendered. However, you may fetch props in parallel by grouping them.
 
 ```php
 Route::get('/users', function () {

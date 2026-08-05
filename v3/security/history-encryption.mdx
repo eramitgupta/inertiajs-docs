@@ -6,9 +6,9 @@ Imagine a scenario where your user is authenticated, browses privileged informat
 
 ## How It Works
 
-When you instruct Inertia to encrypt your app's history, it uses the browser's built-in [`crypto` api ](https://developer.mozilla.org/en-US/docs/Web/API/Crypto) to encrypt the current page's data before pushing it to the history state. We store the corresponding key in the browser's session storage. When the user navigates back to a page, we decrypt the data using the key stored in the session storage.
+When you instruct Inertia to encrypt your app's history, it uses the browser's built-in [`Crypto` API](https://developer.mozilla.org/en-US/docs/Web/API/Crypto) to encrypt the current page's data before pushing it to the history state. We store the corresponding key in the browser's session storage. When the user navigates back to a page, we decrypt the data using the key stored in the session storage.
 
-Once you instruct Inertia to clear your history state, we simply clear the existing key from session storage roll a new one. If we attempt to decrypt the history state with the new key, it will fail and Inertia will make a fresh request back to your server for the page data.
+Once you instruct Inertia to clear your history state, it clears the existing key from session storage and generates a new one. If it attempts to decrypt the history state with the new key, it will fail and Inertia will make a fresh request back to your server for the page data.
 
 History encryption relies on `window.crypto.subtle` which is only available in secure environments (sites with SSL enabled).
 
@@ -58,4 +58,4 @@ Inertia::clearHistory();
 
 Once the response has rendered on the client, the encryption key will be rotated, rendering the previous history state unreadable.
 
-You can also clear history on the client site by calling `router.clearHistory()`.
+You can also clear history on the client side by calling `router.clearHistory()`.

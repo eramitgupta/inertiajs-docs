@@ -56,7 +56,7 @@ resolve: name => {
 
 ## Webpack
 
-To use code splitting with Webpack, you will first need to enable [dynamic imports](https://github.com/tc39/proposal-dynamic-import) via a Babel plugin. Let's install it now.
+To use code splitting with Webpack, enable [dynamic imports](https://github.com/tc39/proposal-dynamic-import) with a Babel plugin:
 
 ```bash
 npm install @babel/plugin-syntax-dynamic-import
@@ -70,7 +70,7 @@ Next, create a `.babelrc` file in your project with the following configuration:
 }
 ```
 
-If you're using Laravel Mix, the dynamic imports Babel plugin is already installed and configured, and you can skip these steps. We recommend using Laravel Mix 6 or above, as there are known issues with older versions.
+If you're using Laravel Mix, the Babel plugin for dynamic imports is already installed and configured, and you can skip these steps. We recommend using Laravel Mix 6 or later, as there are known issues with older versions.
 
 Finally, update the `resolve` callback in your app's initialization code to use `import` instead of `require`.
 
@@ -93,7 +93,7 @@ resolve: name => import(`./Pages/${name}.svelte`), // [!code ++]
 
 </CodeGroup>
 
-You should also consider using cache busting to force browsers to load the latest version of your assets. To accomplish this, add the following configuration to your webpack configuration file.
+You should also consider using cache busting to force browsers to load the latest version of your assets. To accomplish this, add the following configuration to your Webpack configuration file.
 
 ```js
 output: {
