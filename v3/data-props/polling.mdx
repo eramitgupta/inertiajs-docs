@@ -162,6 +162,51 @@ const { start, stop } = usePoll(2000, {}, {
 
 </CodeGroup>
 
+The poll helper also returns a reactive `polling` value that reflects whether the poll is running, making it ideal for rendering a pause or resume button. The value doesn't indicate whether a request is in flight.
+
+<CodeGroup>
+
+```vue Vue icon="vuejs"
+<script setup>
+import { usePoll } from '@inertiajs/vue3'
+
+const { start, stop, polling } = usePoll(2000)
+</script>
+
+<template>
+    <button v-if="polling" @click="stop">Pause updates</button>
+    <button v-else @click="start">Resume updates</button>
+</template>
+```
+
+```jsx React icon="react"
+import { usePoll } from '@inertiajs/react'
+
+export default () => {
+    const { start, stop, polling } = usePoll(2000)
+
+    return polling
+        ? <button onClick={stop}>Pause updates</button>
+        : <button onClick={start}>Resume updates</button>
+}
+```
+
+```svelte Svelte icon="s"
+<script>
+import { usePoll } from '@inertiajs/svelte'
+
+const poll = usePoll(2000)
+</script>
+
+{#if poll.polling}
+    <button onclick={poll.stop}>Pause updates</button>
+{:else}
+    <button onclick={poll.start}>Resume updates</button>
+{/if}
+```
+
+</CodeGroup>
+
 ## Concurrency Mode
 
 By default, the poll helper fires a new request on every tick, even when the previous request is still in flight. You may control this behavior with the `mode` option, which accepts one of three values: `overlap`, `cancel`, or `rest`.
